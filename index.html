@@ -1,116 +1,488 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+    <title>quiz1</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
 </head>
 <body>
-<h1> cloud-based picture and associated information
-    storage and retrieval system</h1>
-<h1>Yubo Yang</h1>
-<h1>1002101126</h1>
-<img src="./static/images/cat.jpeg" alt="User Image">
-<h3>File Upload to insert data</h3>
-<form action="/insertdata" method="post" enctype="multipart/form-data">
-    <input type="file" name="data_file" />
-    <input type="submit" />
-</form>
-<h3>Display Records</h3>
-<form action="/getrecords" method="post" enctype="multipart/form-data">
-    <input type="submit" />
-</form>
-</form>
-<h3>Delete all Records</h3>
-<form action="/deleterecords" method="post" enctype="multipart/form-data">
-    <input type="submit" />
-</form>
-<h3>Image Upload</h3>
-<h3></h3>
-<form action="/uploadimage" method="post" enctype="multipart/form-data">
-    <input type="file" name="image" />
-    <input type="submit" />
-</form>
-<br>
-<h3>Enter Name to display picture</h3>
-<form action="/searchname" method="post" enctype="multipart/form-data">
-    <label>Enter Name:</label>
-    <input type="text" name="name" />
-    <input type="submit" />
+<h1>quiz1 By Jing Xiaopu 01563</h1>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
 </form>
 
-<br>
-<h3>Enter Room to display picture</h3>
-<form action="/searchroom" method="post" enctype="multipart/form-data">
-    <label>Enter Room:</label>
-    <input type="text" name="roomid" />
-    <input type="submit" />
-</form>
-<br>
-<h3>Enter Salary to display pictures</h3>
-<form action="/searchpicture" method="post" enctype="multipart/form-data">
-    <label>Enter Salary:</label>
-    <input type="text" name="salary" />
-    <input type="submit" />
-</form>
-<br>
-<h3>Enter teln range to display pictures</h3>
-<form action="/searchtelrange" method="post" enctype="multipart/form-data">
-    <label>Enter teln range:</label>
-    <input type="text" name="telnx" />-<input type="text" name="telns" />
-    <input type="submit" />
-</form>
-<br>
-<h3>Enter Name to add picture</h3>
-<form action="/addpicture" method="post" enctype="multipart/form-data">
-    <label>Enter Name:</label>
-    <input type="text" name="name" />
-    <label>Upload Picture:</label>
-    <input type="file" name="image" />
-    <input type="submit" />
+
+<h2>Parsed Data</h2>
+<img src="static/imgs/js2.jpg" />
+<form id="csv-form" action="/update_csv" method="post">
+    <table>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="Name">
+            </td>
+
+
+            <td>
+                <input type="text" name="data[]" value="Grade">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="Id">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="Pic">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="Notes">
+            </td>
+
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="ann">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="8">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="901">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="ann is top of her class">
+            </td>
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="bob">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="8">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="902">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="lml.jpg">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="cat">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="905">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="cat is a music students">
+            </td>
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="dan">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="12">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="js2.jpg">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="eve">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="11">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="715">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="plays the harp">
+            </td>
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="fanny">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="799">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="np.jpg">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="can eat glass">
+            </td>
+
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="gary">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="6">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="1010">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="dont know who gary is">
+            </td>
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="hank">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="80">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="1099">
+            </td>
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="ima">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="800">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="mp.jpg">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="ima not youa">
+            </td>
+
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="jen">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="9">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="used to be jan">
+            </td>
+
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="karen">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="11">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="788">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="another karen">
+            </td>
+
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="lou">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="12">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="688">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="sp.jpg">
+            </td>
+
+
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <input type="text" name="data[]" value="">
+            </td>
+
+            <td>
+                <button type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+        </tr>
+
+    </table>
+    <button type="submit">Submit All</button>
+    <button type="button" onclick="addRow()">Add Row</button>
 </form>
 
-<br>
-<h3>Enter Name to delete</h3>
-<form action="/removename" method="post" enctype="multipart/form-data">
-    <label>Enter Name:</label>
-    <input type="text" name="remove_name" />
-    <input type="submit" />
+
+<script>
+    function deleteRow(button) {
+        var row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
+
+<script>
+    function addRow() {
+        var table = document.querySelector('table');
+        var newRow = table.insertRow();
+        var cell = newRow.insertCell();
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'data[]';
+        cell.appendChild(input);
+    }
+</script>
+
+<script>
+    function addRow() {
+        var table = document.querySelector('table');
+        var newRow = table.insertRow();
+
+        var cellCount = table.rows[0].cells.length;
+
+        // 添加单元格并设置内容
+        for (var i = 0; i < cellCount-1; i++) {
+            var cell = newRow.insertCell();
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = "data[]";
+            cell.appendChild(input);
+        }
+    }
+</script>
+
+<form action="/show_image" method="post">
+    <label for="image-name">Enter the user name to display:</label>
+    <input type="text" id="image-name" name="image_name" required>
+    <input type="hidden" name="filename" value="">
+    <button type="submit">Submit</button>
 </form>
-<br>
-<h3>Enter Keyword to Change</h3>
-<form action="/changekeyword" method="post" enctype="multipart/form-data">
-    <label>Enter Name:</label>
-    <input type="text" name="name" />
-    <label>Enter Keyword:</label>
-    <input type="text" name="keyword" />
-    <input type="submit" />
+
+<form action="/query" method="get">
+    <label for="image-name">Enter the user name to display:</label>
+    <label for="grade-min">Minimum grade:</label>
+    <input type="number" id="grade-min" name="min_grade" required>
+    <label for="grade-max">Maximum grade:</label>
+    <input type="number" id="grade-max" name="max_grade" required>
+    <button type="submit">Search</button>
 </form>
-<br>
-<h3>Enter Salary to Change</h3>
-<form action="/changesalary" method="post" enctype="multipart/form-data">
-    <label>Enter Name:</label>
-    <input type="text" name="name" />
-    <label>Enter Salary:</label>
-    <input type="text" name="salary" />
-    <input type="submit" />
+<h3>Search by grade</h3>
+<form action="/search_by_grades" method="post">
+    <input type="text" name="Start_grade" placeholder="Enter Start grade">
+    <input type="text" name="End_grade" placeholder="Enter End grade">
+    <input type="submit" value="Search">
 </form>
-<br>
-<h3>Enter Room to Change</h3>
-<form action="/changeroom" method="post" enctype="multipart/form-data">
-    <label>Enter Name:</label>
-    <input type="text" name="name" />
-    <label>Enter Room:</label>
-    <input type="text" name="room" />
-    <input type="submit" />
+<h3>Search by id or grade</h3>
+<form action="/search_by_salaryname" method="post">
+    <input type="text" name="start_id" placeholder="Enter Start id">
+    <input type="text" name="end_id" placeholder="Enter End id">
+    <input type="text" name="start_grade" placeholder="Enter Start grade">
+    <input type="text" name="end_grade" placeholder="Enter End grade">
+    <input type="submit" value="Search">
 </form>
-<br>
-<h3>Enter tel-number to Change</h3>
-<form action="/changetel" method="post" enctype="multipart/form-data">
-    <label>Enter Name:</label>
-    <input type="text" name="name" />
-    <label>Enter tel-number:</label>
-    <input type="text" name="tel" />
-    <input type="submit" />
+<h3>Update User</h3>
+<form action="/update_user" method="post">
+    <input type="text" name="name" placeholder="Enter name">
+    <input type="text" name="grade" placeholder="Enter grade">
+    <input type="text" name="id" placeholder="Enter id">
+    <input type="text" name="notes" placeholder="Enter notes">
+    <input type="submit" value="Update">
 </form>
+<h3>Add User</h3>
+<form action="/add_user" method="post">
+    <input type="text" name="name" placeholder="Enter name">
+    <input type="text" name="grade" placeholder="Enter grade">
+    <input type="text" name="id" placeholder="Enter id">
+    <input type="text" name="notes" placeholder="Enter notes">
+    <input type="submit" value="Update">
+</form>
+<h2>Uploaded Images</h2>
+<div id="image-container">
+
+</div>
+
 </body>
 </html>
